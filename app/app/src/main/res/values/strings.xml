@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AndroidForensik</string>
+    <string name="socket_name">org.nuii0.nuii0.androidforensik.socket</string>
+</resources>
