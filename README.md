@@ -5,9 +5,11 @@ It does so by porting auditd and its userland tools to Androids by forking and m
 Since the administration of auditd is usually only possible via the CLI, this project also provides an system-tools and an app which enables the management of auditing rules and allows interpretation of tracked audit events.
 ![Image of the App showing network activity tracked by auditd](doc/img/auditd_app_network.png?raw=true "tracked network activity by auditd")
 
-## Architecture
+With `auditd` under Android it is possible to track all syscalls of the system. The image above demonstrates how the App is able to track to track network-acitivty of the system.
 
+## Architecture
 The picture below gives an overview of the architecture.
+
 ![Project architecture](doc/img/all_arch_en.png?raw=true "tracked network activity by auditd")
 
 The tools `auditctl` `ausearch` and `auditd` are tools from the official auditd-Project. `forensikmediator` and `audit-dispatch` are added utilities to make auditd usable under Android.
