@@ -1,11 +1,11 @@
 # auditd_for_android
 This project aims to make the audit subsystem of the Linux Kernel usable for Android 6+.
-It does so by porting auditd and its userland tools to Androids by forking and making Android-NDK projects out of them.
+It does so by porting auditd and its userland tools to Android by forking and making Android-NDK projects out of them.
 
 Since the administration of auditd is usually only possible via the CLI, this project also provides an system-tools and an app which enables the management of auditing rules and allows interpretation of tracked audit events.
 ![Image of the App showing network activity tracked by auditd](doc/img/auditd_app_network.png?raw=true "tracked network activity by auditd")
 
-With `auditd` under Android it is possible to track all syscalls of the system. The image above demonstrates how the App is able to track to track network-acitivty of the system.
+With `auditd` under Android it is possible to track all syscalls of the system. The image above demonstrates how the App is able to track network-acitivty of the system.
 
 ## Architecture
 The picture below gives an overview of the architecture.
@@ -18,21 +18,18 @@ The current state of the project loggs auditd-events in an persistent textfile l
 
 ## Usage
 
-The project comes is structured in several Android-NDK projects and can be build as such via the `ndk-build` binary which comes with the official Android-NDK.
-The app is a Android-SDK project and can be build with the official Android-SDK. All projects can be managet from `Android-Studio`.
+The project is structured in several Android-NDK projects and can be build as such via the `ndk-build` binary which comes with the official Android-NDK.
+The app `AndroidForensik` is a Android-SDK project and can be build with the official Android-SDK. All projects can be managed from `Android-Studio`.
 
 ### Build instructions
 
-All components come with `Android.mk` files which can be build via the provided `build.sh`-scripts or inside the `Android-Studio` IDE.
-`auditd`, `auparse` and `ausearch`
-
+All components provide a `Android.mk` makefile which can be build via the included `build.sh`-scripts or alternatively, inside the `Android-Studio` IDE.
 
 ### Installation
-For testing purposes, it is sufficent to just copy the binaries over via adb and simply run them via `./auditd`, `./forensikmediator`, `./audit-dispatch` and alike. 
-
+For testing purposes, it is sufficent to just copy the binaries over via adb to an running Android system and simply run them via `./auditd`, `./forensikmediator` and `./audit-dispatch`. 
 
 #### Persistent installation
-In order to run the install the builded binaries on an Android system in a persistet way, they needed to be installed under `/system/bin/` and declared as system services in init.rc. There are many ways to install persistent files on Android, either by building a custom image from source or modifiying existing ROM-Images and modifying `system.img` and `ramdisk.img`.
+In order to run the builded binaries on an Android system in a persistet way, they needed to be installed under `/system/bin/` and declared as system services in init.rc. There are many ways to install persistent files on Android, either by building a custom image from source or modifiying existing ROM-Images and modifying `system.img` and `ramdisk.img`.
 
 ##### Init.rc system services
 To declare the required components as system services, modify Androids `init.rc` with the follow entries
@@ -72,4 +69,4 @@ allow forensikmediator self:socket { create read write setattr };
 ```
 
 # License
-This project is licensed under the GNU GENERAL PUBLIC LICENSE
+This project is licensed under the GNU General Public License v3.0.
