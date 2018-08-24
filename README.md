@@ -7,7 +7,7 @@ Since the administration of auditd is usually only possible via the CLI, this pr
 
 ## Architecture
 
-The picture below gives an overview of the architecture
+The picture below gives an overview of the architecture.
 ![Project architecture](doc/img/all_arch_en.png?raw=true "tracked network activity by auditd")
 
 The tools `auditctl` `ausearch` and `auditd` are tools from the official auditd-Project. `forensikmediator` and `audit-dispatch` are added utilities to make auditd usable under Android.
